@@ -3,12 +3,22 @@ const app = express();
 const server = require("http").Server(app);
 const { v4: uuidv4 } = require("uuid");
 app.set("view engine", "ejs");
-const io = require("socket.io")(server, {
+// const io = require("socket.io")(server, {
+//   cors: {
+//     origin: '*'
+//   },
+//   allowEIO3: true,
+//   transports: ['websocket']
+// });
+
+const io = require('socket.io')(server, {
   cors: {
-    origin: '*'
+    origin: "https://video-chat-v1-production.up.railway.app/",
+    methods: ["GET", "POST"],
+    credentials: true
   },
-  allowEIO3: true,
-  transports: ['websocket']
+  transports: ['websocket', 'polling'],
+  allowEIO3: true
 });
 
 const { ExpressPeerServer } = require("peer");
