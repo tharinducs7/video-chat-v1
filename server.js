@@ -13,7 +13,7 @@ app.set("view engine", "ejs");
 
 const io = require('socket.io')(server, {
   cors: {
-    origin: "https://video-chat-v1-production.up.railway.app/",
+    origin: "*",
     methods: ["GET", "POST"],
     credentials: true
   },
