@@ -6,8 +6,10 @@ app.set("view engine", "ejs");
 const io = require("socket.io")(server, {
   cors: {
     origin: '*'
-  }
+  },
+  allowEIO3: true
 });
+
 const { ExpressPeerServer } = require("peer");
 const opinions = {
   debug: true,
