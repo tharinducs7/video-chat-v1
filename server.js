@@ -7,7 +7,8 @@ const io = require("socket.io")(server, {
   cors: {
     origin: '*'
   },
-  allowEIO3: true
+  allowEIO3: true,
+  transports: ['websocket']
 });
 
 const { ExpressPeerServer } = require("peer");
